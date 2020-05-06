@@ -31,13 +31,7 @@ const sttTranscribeFunction = async (filePath) => {
   return await assemblyai({ ApiKey, filePath });
 };
 
-fiveMinStt({
-  file: url,
-  audioFileOutput,
-  ffmpegBinPath,
-  ffprobeBinPath,
-  sttTranscribeFunction,
-}).then((resp) => {
+fiveMinStt({ file: url, audioFileOutput, ffmpegBinPath, ffprobeBinPath, sttTranscribeFunction }).then((resp) => {
   console.log('example usage, fiveMinStt::', JSON.stringify(resp, null, 2));
 });
 ```
@@ -47,13 +41,7 @@ optionally you can specify `audioFileOutput`
 ```js
 const audioFileOutput = './KateDarling_2018S-950k.wav';
 
-fiveMinStt({
-  file: url,
-  audioFileOutput,
-  ffmpegBinPath,
-  ffprobeBinPath,
-  sttTranscribeFunction,
-}).then((resp) => {
+fiveMinStt({ file: url, audioFileOutput, ffmpegBinPath, ffprobeBinPath, sttTranscribeFunction }).then((resp) => {
   console.log('example usage, fiveMinStt::', JSON.stringify(resp, null, 2));
 });
 ```
