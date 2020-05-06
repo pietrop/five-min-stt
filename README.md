@@ -10,7 +10,9 @@ A module to make STT (Speech to Text) modules, to work on a five minutes turnaro
 <!-- _stack - optional_
 _How to build and run the code/app_ -->
 
-git clone
+```
+git clone git@github.com:pietrop/five-min-stt.git
+```
 
 ```
 cd five-min-stt
