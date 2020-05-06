@@ -9,7 +9,21 @@
     "publish:public": "npm publish --access public",
     "publish:dry:run": "npm publish --dry-run"
   },
-  "author": "",
+  "author": "Pietro Passarelli",
+  "contributors": [
+    {
+      "name": "Pietro Passarelli",
+      "url": "https://github.com/pietrop"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/pietrop/five-min-stt/issues"
+  },
+  "homepage": "https://github.com/pietrop/five-min-stt",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pietrop/five-min-stt.git"
+  },
   "license": "MIT",
   "dependencies": {
     "fluent-ffmpeg": "^2.1.2",
