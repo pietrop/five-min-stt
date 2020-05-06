@@ -67,12 +67,12 @@ Note that `audioFileOutput` - is optional,
 
 <!-- _High level overview of system architecture_ -->
 
-- Convert to audio file
-- Split audio file into 5 minutes segments, if over 5 minutes.
-- send segments to STT
-- re-adjust results by adding offsets to word timings, and combine into one list
-- delete tmp audio segments
-- return resulting transcript
+1. Convert to audio file
+2. Split audio file into 5 minutes segments, if over 5 minutes.
+3. send segments to STT service
+4. re-adjust results by adding offsets to word timings, and combine into one list
+5. delete tmp audio segments
+6. return resulting transcript
 
 Initially developed to work with [`@pietrop/assemblyai-node-sdk`](https://github.com/pietrop/assemblyai-node-sdk) but tries not to be opinionated about which STT service you use. Altho it assumes the result from the `sttTranscriFunction` has a `words` attribute with word object, with end, start timecodes and text attribute.
 
