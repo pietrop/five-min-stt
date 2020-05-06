@@ -136,8 +136,14 @@ _NA_
 
 <!-- _How to deploy the code/app into test/staging/production_ -->
 
-<!--
+to publish to npm
+
 ```
 npm run publish:public
 ```
-to publish to npm -->
+
+To do a dry run
+
+```
+npm run publish:dry:run
+```
