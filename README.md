@@ -22,6 +22,16 @@ npm install
 
 ## Usage
 
+### Usage in development
+
+see the example usage in `src/`
+
+### Usage in production
+
+```
+npm install five-min-stt
+```
+
 ```js
 const fiveMinStt = require('five-min-stt');
 const url = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
