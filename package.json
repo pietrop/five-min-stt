@@ -1,0 +1,20 @@
+{
+  "name": "five-min-stt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "fluent-ffmpeg": "^2.1.2",
+    "tmp": "^0.2.1"
+  },
+  "devDependencies": {
+    "ffmpeg-static-electron": "^2.0.1",
+    "ffprobe-static-electron": "^2.0.0",
+    "@pietrop/assemblyai": "^2.0.1"
+  }
+}
