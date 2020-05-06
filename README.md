@@ -23,9 +23,9 @@ npm install
 ## Usage
 
 ```js
-const fiveMinStt = require("five-min-stt");
-const url = "https://download.ted.com/talks/KateDarling_2018S-950k.mp4";
-const audioFileOutput = "./KateDarling_2018S-950k.wav";
+const fiveMinStt = require('five-min-stt');
+const url = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
+const audioFileOutput = './KateDarling_2018S-950k.wav';
 
 const sttTranscribeFunction = async (filePath) => {
   return await assemblyai({ ApiKey, filePath });
@@ -38,14 +38,14 @@ fiveMinStt({
   ffprobeBinPath,
   sttTranscribeFunction,
 }).then((resp) => {
-  console.log("example usage, fiveMinStt::", JSON.stringify(resp, null, 2));
+  console.log('example usage, fiveMinStt::', JSON.stringify(resp, null, 2));
 });
 ```
 
 optionally you can specify `audioFileOutput`
 
 ```js
-const audioFileOutput = "./KateDarling_2018S-950k.wav";
+const audioFileOutput = './KateDarling_2018S-950k.wav';
 
 fiveMinStt({
   file: url,
@@ -54,7 +54,7 @@ fiveMinStt({
   ffprobeBinPath,
   sttTranscribeFunction,
 }).then((resp) => {
-  console.log("example usage, fiveMinStt::", JSON.stringify(resp, null, 2));
+  console.log('example usage, fiveMinStt::', JSON.stringify(resp, null, 2));
 });
 ```
 
@@ -76,8 +76,9 @@ Note that `audioFileOutput` - is optional,
 
 Initially developed to work with [`@pietrop/assemblyai-node-sdk`](https://github.com/pietrop/assemblyai-node-sdk) but tries not to be opinionated about which STT service you use. Altho it assumes the result from the `sttTranscriFunction` has a `words` attribute with word object, with end, start timecodes and text attribute.
 
-```json
-"words": [
+```js
+{
+    "words": [
         {
             "end": 440,
             "start": 0,
@@ -85,6 +86,8 @@ Initially developed to work with [`@pietrop/assemblyai-node-sdk`](https://github
             ...
         },
         ...
+    ]
+}
 ```
 
 <!-- ## Documentation
@@ -115,6 +118,18 @@ nvm use
 <!-- _Coding style convention ref optional, eg which linter to use_ -->
 
 <!-- _Linting, github pre-push hook - optional_ -->
+
+### Linting
+
+This repo uses prettier for linting. If you are using visual code you can add the [Prettier - Code formatter](https://github.com/prettier/prettier-vscode) extension, and configure visual code to do things like [format on save](https://stackoverflow.com/questions/39494277/how-do-you-format-code-on-save-in-vs-code).
+
+You can also run the linting via npm scripts
+
+```
+npm run lint
+```
+
+and there's also a [pre-commit hook](https://github.com/typicode/husky) that runs it too.
 
 ## Build
 

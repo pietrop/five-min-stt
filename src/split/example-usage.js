@@ -9,7 +9,6 @@ const splitAudioFile = require('./index.js');
 const url = './KateDarling_2018S-950k.wav';
 // const audioFileOutput = './ted-talk.wav';
 
-
-splitAudioFile({file: url, ffmpegBinPath, ffprobeBinPath}).then((resp)=>{
-    console.log('example usage::',resp)
-})
+splitAudioFile({ file: url, ffmpegBinPath, ffprobeBinPath }).then((resp) => {
+  console.log('example usage::', resp);
+});

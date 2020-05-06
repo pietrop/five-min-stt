@@ -1,0 +1,7 @@
+**/node_modules
+*.json
+# if you are creating a dist bundle
+dist/
+# for storybook output
+.out/
+.github/
