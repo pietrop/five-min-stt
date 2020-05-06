@@ -125,8 +125,6 @@ function splitAudioFile({ file, ffmpegBinPath, ffprobeBinPath }) {
             prefix: `ingest-${fileName}.${i}`,
             postfix: '.ogg',
           }).name;
-
-          console.log('filePart', filePart);
           //trim audio files
           trim({
             src: file,

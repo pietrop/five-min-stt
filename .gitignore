@@ -117,3 +117,5 @@ lib/
 dist/
 
 test/
+
+test.json

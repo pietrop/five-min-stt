@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@pietrop/assemblyai": "^2.0.1",
+    "dotenv": "^8.2.0",
     "ffmpeg-static-electron": "^2.0.1",
     "ffprobe-static-electron": "^2.0.0",
     "husky": "^4.2.5",

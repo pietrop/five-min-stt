@@ -1,9 +1,11 @@
+const fs = require('fs');
 const ffmpegBin = require('ffmpeg-static-electron');
 const ffprobeBin = require('ffprobe-static-electron');
 const ffmpegBinPath = ffmpegBin.path;
 const ffprobeBinPath = ffprobeBin.path;
 const fiveMinStt = require('./index.js');
-const assemblyai = require('./index.js');
+const assemblyai = require('@pietrop/assemblyai');
+require('dotenv').config();
 
 const sampleAssemblyAi = {
   acoustic_model: 'assemblyai_default',
@@ -47,10 +49,12 @@ const url = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
 const audioFileOutput = './KateDarling_2018S-950k.wav';
 
 const sttTranscribeFunction = async (filePath) => {
-  // return await assemblyai({ApiKey, filePath});
-  return sampleAssemblyAi;
+  const ApiKey = process.env.ASSEMBLYAI_API_KEY;
+  return await assemblyai({ ApiKey, filePath });
+  // return sampleAssemblyAi;
 };
 
 fiveMinStt({ file: url, audioFileOutput, ffmpegBinPath, ffprobeBinPath, sttTranscribeFunction }).then((resp) => {
   console.log('example usage, fiveMinStt::', JSON.stringify(resp, null, 2));
+  fs.writeFileSync('./test.json', JSON.stringify(resp, null, 2));
 });

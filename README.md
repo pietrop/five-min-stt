@@ -63,6 +63,18 @@ Note that `audioFileOutput` - is optional,
 - if not provided it creates one in a tmp dir on the system, and the deletes it when done.
 - if provided name/path for audio version destination then is developer's responsability to decide if they want to keep or delete the audio file.
 
+Note that if you are using with AssemblyAi STT, on free tier account, there's a limit of one concurrent transcript at a time. After which they get throttled.
+For pay as you go accounts a limit of 32. If exceed those it will also get throttled.
+But for 1 hour: 60 min / 5 = 12 concurrent transcription. See table below for more examples.
+
+| hour | min | chunks | concurrent segments |
+| ---- | --- | ------ | ------------------- |
+| 1    | 60  | 5      | 12                  |
+| 2    | 120 | 5      | 24                  |
+| 3    | 180 | 5      | 36                  |
+
+The 3 hour lenght would go over the 32 concurrent transcriptions, and the exceeding one would be throttled.
+
 ## System Architecture
 
 <!-- _High level overview of system architecture_ -->
