@@ -103,6 +103,8 @@ Initially developed to work with [`@pietrop/assemblyai-node-sdk`](https://github
 }
 ```
 
+Note that the scirpt does not modify the unit of the timings for `start` and `end`, eg if they are in seconds or milliseconds that stays as it is.
+
 <!-- ## Documentation
 
 There's a [docs](./docs) folder in this repository.
