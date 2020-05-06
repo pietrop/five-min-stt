@@ -1,15 +1,16 @@
-## 5 min STT 
+## 5 min STT
+
 <!-- _One liner + link to confluence page_
 _Screenshot of UI - optional_ -->
 
-A module to make STT (Speech to Service) to work on a five minutes turnaround time. Refactored from [autoEdit2](https://opennewslabs.github.io/autoEdit_2/) to use in [autoEdit3](https://www.autoedit.io/).
-
-
+A module to make STT (Speech to Text) modules, to work on a five minutes turnaround time. Refactored from [autoEdit2](https://opennewslabs.github.io/autoEdit_2/) to use in [autoEdit3](https://www.autoedit.io/).
 
 ## Setup
+
 <!-- _stack - optional_
 _How to build and run the code/app_ -->
-git clone 
+
+git clone
 
 ```
 cd five-min-stt
@@ -20,35 +21,50 @@ npm install
 ```
 
 ## Usage
+
 ```js
-const fiveMinStt = require('five-min-stt');
-const url = 'https://download.ted.com/talks/KateDarling_2018S-950k.mp4';
-const audioFileOutput = './KateDarling_2018S-950k.wav';
+const fiveMinStt = require("five-min-stt");
+const url = "https://download.ted.com/talks/KateDarling_2018S-950k.mp4";
+const audioFileOutput = "./KateDarling_2018S-950k.wav";
 
-const sttTranscribeFunction = async (filePath)=>{
-    return await assemblyai({ApiKey, filePath});
-} 
+const sttTranscribeFunction = async (filePath) => {
+  return await assemblyai({ ApiKey, filePath });
+};
 
-fiveMinStt({file: url,audioFileOutput,ffmpegBinPath, ffprobeBinPath, sttTranscribeFunction}).then((resp)=>{
-    console.log('example usage, fiveMinStt::', JSON.stringify(resp,null,2))
-})
+fiveMinStt({
+  file: url,
+  audioFileOutput,
+  ffmpegBinPath,
+  ffprobeBinPath,
+  sttTranscribeFunction,
+}).then((resp) => {
+  console.log("example usage, fiveMinStt::", JSON.stringify(resp, null, 2));
+});
 ```
 
 optionally you can specify `audioFileOutput`
+
 ```js
+const audioFileOutput = "./KateDarling_2018S-950k.wav";
 
-const audioFileOutput = './KateDarling_2018S-950k.wav';
-
-fiveMinStt({file: url,audioFileOutput,ffmpegBinPath, ffprobeBinPath, sttTranscribeFunction}).then((resp)=>{
-    console.log('example usage, fiveMinStt::', JSON.stringify(resp,null,2))
-})
+fiveMinStt({
+  file: url,
+  audioFileOutput,
+  ffmpegBinPath,
+  ffprobeBinPath,
+  sttTranscribeFunction,
+}).then((resp) => {
+  console.log("example usage, fiveMinStt::", JSON.stringify(resp, null, 2));
+});
 ```
 
-Note that `audioFileOutput` - is optional, 
-- if not provided it creates one in a tmp dir on the system, and the deletes it when done. 
+Note that `audioFileOutput` - is optional,
+
+- if not provided it creates one in a tmp dir on the system, and the deletes it when done.
 - if provided name/path for audio version destination then is developer's responsability to decide if they want to keep or delete the audio file.
 
 ## System Architecture
+
 <!-- _High level overview of system architecture_ -->
 
 - Convert to audio file
@@ -56,8 +72,7 @@ Note that `audioFileOutput` - is optional,
 - send segments to STT
 - re-adjust results by adding offsets to word timings, and combine into one list
 - delete tmp audio segments
-- return resulting transcript 
-
+- return resulting transcript
 
 Initially developed to work with [`@pietrop/assemblyai-node-sdk`](https://github.com/pietrop/assemblyai-node-sdk) but tries not to be opinionated about which STT service you use. Altho it assumes the result from the `sttTranscriFunction` has a `words` attribute with word object, with end, start timecodes and text attribute.
 
@@ -85,12 +100,14 @@ There's a [docs](./docs) folder in this repository.
 We are using [this template for ADR](https://gist.github.com/iaincollins/92923cc2c309c2751aea6f1b34b31d95) -->
 
 ## Development env
+
  <!-- _How to run the development environment_ -->
 
 - npm > `6.1.0`
-- Node 12 
+- Node 12
 
 Node version is set in node version manager [`.nvmrc`](https://github.com/creationix/nvm#nvmrc)
+
 ```
 nvm use
 ```
@@ -100,18 +117,22 @@ nvm use
 <!-- _Linting, github pre-push hook - optional_ -->
 
 ## Build
+
 <!-- _How to run build_ -->
 
 _NA_
 
 ## Tests
+
 <!-- _How to carry out tests_ -->
+
 _NA_
 
 ## Deployment
+
 <!-- _How to deploy the code/app into test/staging/production_ -->
 
-<!-- 
+<!--
 ```
 npm run publish:public
 ```
